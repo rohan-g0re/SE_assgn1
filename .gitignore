@@ -175,7 +175,7 @@ static/
 # !*/migrations/__init__.py
 
 # AWS Elastic Beanstalk
-.elasticbeanstalk/
+# .elasticbeanstalk/
 *.pyc
 *.pyo
 *.pyd
@@ -200,7 +200,7 @@ wheels/
 MANIFEST
 
 # AWS EB CLI
-.ebextensions/
+# .ebextensions/
 .ebignore
 
 # Environment variables
