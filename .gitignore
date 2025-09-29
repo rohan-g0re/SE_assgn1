@@ -301,3 +301,8 @@ temp/
 
 # Project specific
 # Add any project-specific files or directories here
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
