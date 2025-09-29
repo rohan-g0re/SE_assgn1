@@ -1,0 +1,18 @@
+branch-defaults:
+  default:
+    environment: env-name
+    group_suffix: null
+global:
+  application_name: djangotutorial
+  branch: null
+  default_ec2_keyname: key-pair-name
+  default_platform: choose-yours
+  default_region: choose-yours
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: choose-yours
+  repository: null
+  sc: null
+  workspace_type: Application

@@ -303,6 +303,6 @@ temp/
 # Add any project-specific files or directories here
 
 # Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+djangotutorial/.elasticbeanstalk/app_versions/*
+djangotutorial/.elasticbeanstalk/config.yml
+!djangotutorial/.elasticbeanstalk/config_yaml.txt
