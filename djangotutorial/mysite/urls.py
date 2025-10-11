@@ -24,4 +24,3 @@ urlpatterns = [
     path("polls/", include("polls.urls", namespace="polls")),
     path("admin/", admin.site.urls),
 ]
-

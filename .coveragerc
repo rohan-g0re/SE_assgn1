@@ -1,9 +1,10 @@
 [run]
 branch = True
-source = .
+source = djangotutorial
 omit =
     */migrations/*
     */__init__.py
+    */tests/*
 [report]
 skip_empty = True
 fail_under = 0
