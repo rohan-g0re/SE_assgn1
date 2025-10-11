@@ -3,7 +3,7 @@
 This project contains a Django polls application deployed to AWS Elastic Beanstalk.
 
 ## Live Application
-- [**Main App**](http://djangotutorial-env.us-east-1.elasticbeanstalk.com)
+- [**Main App**](http://djangotutorial-env.us-east-1.elasticbeanstalk.com) 
 - [**Link to Polls Utility**](http://djangotutorial-env.us-east-1.elasticbeanstalk.com/polls/)
 
 ## Project Structure
