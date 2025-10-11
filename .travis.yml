@@ -1,0 +1,38 @@
+dist: jammy
+language: python
+python:
+  - "3.13"
+cache: pip
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE=mysite.settings
+    - PYTHONPATH=$PYTHONPATH:djangotutorial
+    - EB_APP=djangotutorial
+    - EB_ENV=djangotutorial-env
+    - EB_REGION=us-east-1
+before_install:
+  - python -V
+  - pip install -U pip wheel
+install:
+  - pip install -r djangotutorial/requirements.txt
+  - pip install black flake8 pytest pytest-django coverage
+script:
+  - black --check .
+  - flake8
+  - coverage run -m pytest -q
+after_success:
+  - coverage xml
+jobs:
+  include: []
+deploy:
+  provider: elasticbeanstalk
+  region: "$EB_REGION"
+  app: "$EB_APP"
+  env: "$EB_ENV"
+  bucket_name: "$EB_BUCKET"
+  bucket_path: "djangotutorial"
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  on:
+    branch: main
+
