@@ -22,6 +22,10 @@ script:
   - coverage run -m pytest -q
 after_success:
   - coverage xml
+before_deploy:
+  - pushd djangotutorial
+  - zip -r ../deploy.zip .
+  - popd
 jobs:
   include: []
 deploy:
@@ -31,6 +35,7 @@ deploy:
   env: "$EB_ENV"
   bucket_name: "$EB_BUCKET"
   bucket_path: "djangotutorial"
+  zip_file: "deploy.zip"
   access_key_id: "$AWS_ACCESS_KEY_ID"
   secret_access_key: "$AWS_SECRET_ACCESS_KEY"
   on:
