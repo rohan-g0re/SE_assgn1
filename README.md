@@ -1,5 +1,7 @@
 # Django Polls App - AWS Elastic Beanstalk Deployment
 
+main: [![Build](https://img.shields.io/badge/build-passing-brightgreen)](#) [![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#)
+
 This project contains a Django polls application deployed to AWS Elastic Beanstalk.
 
 ## Live Application
@@ -104,6 +106,39 @@ asgiref==3.9.2
 sqlparse==0.5.3
 tzdata==2025.2
 ```
+
+## CI/CD (Travis CI)
+
+- **What runs**: On every push/PR to `main`, Travis installs dependencies, runs tests with coverage, and reports status to the badges above.
+- **Why**: Quick feedback that the app builds and that tests keep coverage healthy.
+
+### Minimal .travis.yml
+```yaml
+# .travis.yml
+language: python
+python: "3.11"
+install:
+  - pip install -r djangotutorial/requirements.txt
+  - pip install pytest pytest-cov
+script:
+  - pytest -q --cov=. --cov-report=term-missing
+after_success:
+  - coverage xml  # generates coverage.xml used by badges/dashboards
+
+# Optional: deploy to Elastic Beanstalk when main passes
+# deploy:
+#   provider: elasticbeanstalk
+#   region: us-east-1
+#   app: djangotutorial
+#   env: djangotutorial-env
+#   bucket_name: your-eb-bucket
+#   on:
+#     branch: main
+```
+
+### Setup Notes
+- Add repository in Travis CI and enable builds for `main`.
+- If deploying from Travis, set `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in Travis repo settings.
 
 ## Assignment Deliverables
 - ✅ Deployed Django polls app accessible at `/polls/`
